@@ -1,0 +1,12 @@
+diff --git a/modules/content_translation/src/ContentTranslationMetadataWrapper.php b/modules/content_translation/src/ContentTranslationMetadataWrapper.php
+index db99dc4e..0c8e320a 100644
+--- a/modules/content_translation/src/ContentTranslationMetadataWrapper.php
++++ b/modules/content_translation/src/ContentTranslationMetadataWrapper.php
+@@ -154,6 +154,7 @@ class ContentTranslationMetadataWrapper implements ContentTranslationMetadataWra
+    *        The field value to be set.
+    */
+   protected function setFieldOnlyIfTranslatable($field_name, $value) {
++  if(!empty($this->translation->getFieldDefinition($field_name)))
+     if ($this->translation->getFieldDefinition($field_name)->isTranslatable()) {
+       $this->translation->set($field_name, $value);
+     }

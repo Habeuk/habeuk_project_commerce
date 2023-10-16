@@ -1,0 +1,19 @@
+diff --git a/domain_source/domain_source.module b/domain_source/domain_source.module
+index 57eb2599..86d97d0c 100644
+--- a/domain_source/domain_source.module
++++ b/domain_source/domain_source.module
+@@ -135,11 +135,12 @@ function domain_source_form_alter(&$form, &$form_state, $form_id) {
+      ) {
+     // Validate the form.
+     $form['#validate'][] = 'domain_source_form_validate';
++    if(!empty($form['actions']))
+     foreach ($form['actions'] as $key => $element) {
+       // Redirect submit handlers, but not the preview button.
+       if ($key !== 'preview' && isset($element['#type'])
+-          && $element['#type'] === 'submit') {
+-        $form['actions'][$key]['#submit'][] = 'domain_source_form_submit';
++	  && $element['#type'] === 'submit') {
++	$form['actions'][$key]['#submit'][] = 'domain_source_form_submit';
+       }
+     }
+   }

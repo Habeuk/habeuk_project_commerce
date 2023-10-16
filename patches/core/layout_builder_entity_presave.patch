@@ -1,0 +1,16 @@
+diff --git a/modules/layout_builder/layout_builder.module b/modules/layout_builder/layout_builder.module
+index 1646139a..b5aec312 100644
+--- a/modules/layout_builder/layout_builder.module
++++ b/modules/layout_builder/layout_builder.module
+@@ -193,6 +193,11 @@ function layout_builder_module_implements_alter(&$implementations, $hook) {
+  * Implements hook_entity_presave().
+  */
+ function layout_builder_entity_presave(EntityInterface $entity) {
++  $routes=['vuejs_entity.create_entity','vuejs_entity.generate_page_web','apivuejs.save.entity','vuejs_entity.create_entity_duplique_ref','vuejs_entity.generate_page_web',
++    'vuejs_entity.add_paragraph_in_entity',
++    'vuejs_entity.add_block_in_region',
++  ];
++  if(!in_array(\Drupal::routeMatch()->getRouteName(), $routes))
+   if (\Drupal::moduleHandler()->moduleExists('block_content')) {
+     /** @var \Drupal\layout_builder\InlineBlockEntityOperations $entity_operations */
+     $entity_operations = \Drupal::classResolver(InlineBlockEntityOperations::class);

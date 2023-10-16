@@ -1,0 +1,41 @@
+diff --git a/src/Form/ParagraphsTypeForm.php b/src/Form/ParagraphsTypeForm.php
+index dee8c7a..9e5b6f3 100644
+--- a/src/Form/ParagraphsTypeForm.php
++++ b/src/Form/ParagraphsTypeForm.php
+@@ -10,6 +10,7 @@ use Drupal\field_ui\FieldUI;
+ use Drupal\paragraphs\ParagraphsBehaviorManager;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+ use Drupal\paragraphs\ParagraphsTypeInterface;
++use Drupal\language\Entity\ContentLanguageSettings;
+ 
+ /**
+  * Form controller for paragraph type forms.
+@@ -157,6 +158,28 @@ class ParagraphsTypeForm extends EntityForm {
+         }
+       }
+     }
++    //
++    /**
++     *
++     * @var \Drupal\paragraphs\Entity\ParagraphsType $formEntity
++     */
++    if ($this->moduleHandler->moduleExists('language')) {
++      $form['language'] = [
++        '#type' => 'details',
++        '#title' => t('Language settings'),
++        '#group' => 'additional_settings'
++      ];
++      
++      $language_configuration = ContentLanguageSettings::loadByEntityTypeBundle('paragraph', $paragraphs_type->id());
++      $form['language']['language_configuration'] = [
++        '#type' => 'language_configuration',
++        '#entity_information' => [
++          'entity_type' => 'paragraph',
++          'bundle' => $paragraphs_type->id()
++        ],
++        '#default_value' => $language_configuration
++      ];
++    }
+ 
+     return $form;
+   }

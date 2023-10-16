@@ -1,0 +1,473 @@
+diff --git a/src/Entity/Paragraph.php b/src/Entity/Paragraph.php
+index 702b78d..41a0025 100644
+--- a/src/Entity/Paragraph.php
++++ b/src/Entity/Paragraph.php
+@@ -94,6 +94,9 @@ use Drupal\user\UserInterface;
+  *     "behavior_settings" = {
+  *       "value"
+  *     }
++ *   },
++ *   links = {
++ *     "canonical" = "/paragraph/{paragraph}",
+  *   }
+  * )
+  */
+@@ -118,6 +121,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   protected $summaryCount;
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function getParentEntity() {
+@@ -136,6 +140,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function setParentEntity(ContentEntityInterface $parent, $parent_field_name) {
+@@ -146,6 +151,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function label() {
+@@ -166,12 +172,16 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+       }
+     }
+     else {
+-      $label = $this->t('Orphaned @type: @summary', ['@summary' => Unicode::truncate(strip_tags($this->getSummary()), 50, FALSE, TRUE), '@type' => $this->get('type')->entity->label()]);
++      $label = $this->t('Orphaned @type: @summary', [
++        '@summary' => Unicode::truncate(strip_tags($this->getSummary()), 50, FALSE, TRUE),
++        '@type' => $this->get('type')->entity->label()
++      ]);
+     }
+     return $label;
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function preSave(EntityStorageInterface $storage) {
+@@ -184,6 +194,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function getAllBehaviorSettings() {
+@@ -197,6 +208,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function &getBehaviorSetting($plugin_id, $key, $default = NULL) {
+@@ -210,6 +222,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function setAllBehaviorSettings(array $settings) {
+@@ -218,6 +231,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function setBehaviorSettings($plugin_id, array $settings) {
+@@ -228,6 +242,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function postSave(EntityStorageInterface $storage, $update = TRUE) {
+@@ -236,6 +251,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function preSaveRevision(EntityStorageInterface $storage, \stdClass $record) {
+@@ -243,6 +259,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function getCreatedTime() {
+@@ -250,10 +267,11 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    *
+    * @deprecated Paragraphs no longer have their own author,
+-   *  check the parent entity instead.
++   *             check the parent entity instead.
+    */
+   public function getOwner() {
+     $parent = $this->getParentEntity();
+@@ -266,10 +284,11 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    *
+    * @deprecated Paragraphs no longer have their own author,
+-   *  check the parent entity instead.
++   *             check the parent entity instead.
+    */
+   public function getOwnerId() {
+     $parent = $this->getParentEntity();
+@@ -282,26 +301,29 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    *
+    * @deprecated Paragraphs no longer have their own author,
+-   *  check the parent entity instead.
++   *             check the parent entity instead.
+    */
+   public function setOwnerId($uid) {
+     return $this;
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    *
+    * @deprecated Paragraphs no longer have their own author,
+-   *  check the parent entity instead.
++   *             check the parent entity instead.
+    */
+   public function setOwner(UserInterface $account) {
+     return $this;
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function getType() {
+@@ -309,6 +331,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function getParagraphType() {
+@@ -316,10 +339,11 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    *
+    * @deprecated Paragraphs no longer have their own author,
+-   *  check the parent entity instead.
++   *             check the parent entity instead.
+    */
+   public function getRevisionAuthor() {
+     $parent = $this->getParentEntity();
+@@ -332,16 +356,18 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    *
+    * @deprecated Paragraphs no longer have their own author,
+-   *  check the parent entity instead.
++   *             check the parent entity instead.
+    */
+   public function setRevisionAuthorId($uid) {
+     return $this;
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function getRevisionLog() {
+@@ -349,6 +375,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function setRevisionLog($revision_log) {
+@@ -356,82 +383,53 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
+     $fields = parent::baseFieldDefinitions($entity_type);
+ 
+-    $fields['langcode'] = BaseFieldDefinition::create('language')
+-      ->setLabel(t('Language code'))
+-      ->setDescription(t('The paragraphs entity language code.'))
+-      ->setRevisionable(TRUE);
+-
+-    $fields['status'] = BaseFieldDefinition::create('boolean')
+-      ->setLabel(t('Published'))
+-      ->setRevisionable(TRUE)
+-      ->setTranslatable(TRUE)
+-      ->setDefaultValue(TRUE)
+-      ->setDisplayConfigurable('form', TRUE);
+-
+-    $fields['created'] = BaseFieldDefinition::create('created')
+-      ->setLabel(t('Authored on'))
+-      ->setDescription(t('The time that the Paragraph was created.'))
+-      ->setRevisionable(TRUE)
+-      ->setTranslatable(TRUE)
+-      ->setDisplayOptions('form', array(
+-        'region' => 'hidden',
+-        'weight' => 0,
+-      ))
+-      ->setDisplayConfigurable('form', TRUE);
+-
+-    $fields['parent_id'] = BaseFieldDefinition::create('string')
+-      ->setLabel(t('Parent ID'))
+-      ->setDescription(t('The ID of the parent entity of which this entity is referenced.'))
+-      ->setSetting('is_ascii', TRUE)
+-      ->setRevisionable(TRUE);
+-
+-    $fields['parent_type'] = BaseFieldDefinition::create('string')
+-      ->setLabel(t('Parent type'))
+-      ->setDescription(t('The entity parent type to which this entity is referenced.'))
+-      ->setSetting('is_ascii', TRUE)
+-      ->setSetting('max_length', EntityTypeInterface::ID_MAX_LENGTH)
+-      ->setRevisionable(TRUE);
+-
+-    $fields['parent_field_name'] = BaseFieldDefinition::create('string')
+-      ->setLabel(t('Parent field name'))
+-      ->setDescription(t('The entity parent field name to which this entity is referenced.'))
+-      ->setSetting('is_ascii', TRUE)
+-      ->setSetting('max_length', FieldStorageConfig::NAME_MAX_LENGTH)
+-      ->setRevisionable(TRUE);
+-
+-    $fields['behavior_settings'] = BaseFieldDefinition::create('string_long')
+-      ->setLabel(t('Behavior settings'))
+-      ->setDescription(t('The behavior plugin settings'))
+-      ->setRevisionable(TRUE)
+-      ->setDefaultValue(serialize([]));
++    $fields['langcode'] = BaseFieldDefinition::create('language')->setLabel(t('Language code'))->setDescription(t('The paragraphs entity language code.'))->setRevisionable(TRUE);
++
++    $fields['status'] = BaseFieldDefinition::create('boolean')->setLabel(t('Published'))->setRevisionable(TRUE)->setTranslatable(TRUE)->setDefaultValue(TRUE)->setDisplayConfigurable('form', TRUE);
++
++    $fields['created'] = BaseFieldDefinition::create('created')->setLabel(t('Authored on'))->setDescription(t('The time that the Paragraph was created.'))->setRevisionable(TRUE)->setTranslatable(TRUE)->setDisplayOptions('form', array(
++      'region' => 'hidden',
++      'weight' => 0
++    ))->setDisplayConfigurable('form', TRUE);
++
++    $fields['parent_id'] = BaseFieldDefinition::create('string')->setLabel(t('Parent ID'))->setDescription(t('The ID of the parent entity of which this entity is referenced.'))->setSetting('is_ascii', TRUE)->setRevisionable(TRUE);
++
++    $fields['parent_type'] = BaseFieldDefinition::create('string')->setLabel(t('Parent type'))->setDescription(t('The entity parent type to which this entity is referenced.'))->setSetting('is_ascii', TRUE)->setSetting('max_length', EntityTypeInterface::ID_MAX_LENGTH)->setRevisionable(TRUE);
++
++    $fields['parent_field_name'] = BaseFieldDefinition::create('string')->setLabel(t('Parent field name'))->setDescription(t('The entity parent field name to which this entity is referenced.'))->setSetting('is_ascii', TRUE)->setSetting('max_length', FieldStorageConfig::NAME_MAX_LENGTH)->setRevisionable(TRUE);
++
++    $fields['behavior_settings'] = BaseFieldDefinition::create('string_long')->setLabel(t('Behavior settings'))->setDescription(t('The behavior plugin settings'))->setRevisionable(TRUE)->setDefaultValue(serialize([]));
+ 
+     return $fields;
+   }
+ 
+   /**
+-  * {@inheritdoc}
+-  */
+- public function createDuplicate() {
+-   $duplicate = parent::createDuplicate();
+-   // Loop over entity fields and duplicate nested paragraphs.
+-   foreach ($duplicate->getFields() as $fieldItemList) {
+-     if ($fieldItemList instanceof EntityReferenceFieldItemListInterface && $fieldItemList->getSetting('target_type') === $this->getEntityTypeId()) {
+-       foreach ($fieldItemList as $delta => $item) {
+-         if ($item->entity) {
+-           $fieldItemList[$delta] = $item->entity->createDuplicate();
+-         }
+-       }
+-     }
+-   }
+-   return $duplicate;
+- }
++   *
++   * {@inheritdoc}
++   */
++  public function createDuplicate() {
++    $duplicate = parent::createDuplicate();
++    // Loop over entity fields and duplicate nested paragraphs.
++    foreach ($duplicate->getFields() as $fieldItemList) {
++      if ($fieldItemList instanceof EntityReferenceFieldItemListInterface && $fieldItemList->getSetting('target_type') === $this->getEntityTypeId()) {
++        foreach ($fieldItemList as $delta => $item) {
++          if ($item->entity) {
++            $fieldItemList[$delta] = $item->entity->createDuplicate();
++          }
++        }
++      }
++    }
++    return $duplicate;
++  }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function getSummary(array $options = []) {
+@@ -439,17 +437,21 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+     $summary = [
+       '#theme' => 'paragraphs_summary',
+       '#summary' => $summary_items,
+-      '#expanded' => isset($options['expanded']) ? $options['expanded'] : FALSE,
++      '#expanded' => isset($options['expanded']) ? $options['expanded'] : FALSE
+     ];
+ 
+     return \Drupal::service('renderer')->renderPlain($summary);
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function getSummaryItems(array $options = []) {
+-    $summary = ['content' => [], 'behaviors' => []];
++    $summary = [
++      'content' => [],
++      'behaviors' => []
++    ];
+     $show_behavior_summary = isset($options['show_behavior_summary']) ? $options['show_behavior_summary'] : TRUE;
+     $depth_limit = isset($options['depth_limit']) ? $options['depth_limit'] : 1;
+ 
+@@ -532,7 +534,9 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+         if ($plugin_summary = $plugin->settingsSummary($this)) {
+           foreach ($plugin_summary as $plugin_summary_element) {
+             if (!is_array($plugin_summary_element)) {
+-              $plugin_summary_element = ['value' => $plugin_summary_element];
++              $plugin_summary_element = [
++                'value' => $plugin_summary_element
++              ];
+             }
+             $summary['behaviors'][] = $plugin_summary_element;
+           }
+@@ -544,6 +548,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function getIcons(array $options = []) {
+@@ -558,7 +563,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+       $icons['count'] = [
+         '#markup' => $this->summaryCount,
+         '#prefix' => '<span class="paragraphs-badge" title="' . (string) \Drupal::translation()->formatPlural($this->summaryCount, '1 child', '@count children') . '">',
+-        '#suffix' => '</span>',
++        '#suffix' => '</span>'
+       ];
+     }
+ 
+@@ -577,8 +582,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   /**
+    * Returns an array of field names to skip in ::isChanged.
+    *
+-   * @return array
+-   *   An array of field names.
++   * @return array An array of field names.
+    */
+   protected function getFieldsToSkipFromChangedCheck() {
+     // A list of revision fields which should be skipped from the comparision.
+@@ -590,6 +594,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function isChanged() {
+@@ -642,10 +647,9 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+    * Returns summary for file paragraph.
+    *
+    * @param string $field_name
+-   *   Field name from field definition.
++   *        Field name from field definition.
+    *
+-   * @return string
+-   *   Summary for image.
++   * @return string Summary for image.
+    */
+   protected function getFileSummary($field_name) {
+     $summary = '';
+@@ -681,14 +685,14 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+    * Returns summary items for nested paragraphs.
+    *
+    * @param string $field_name
+-   *   Field definition id for paragraph.
++   *        Field definition id for paragraph.
+    * @param array $options
+-   *   (optional) An associative array of additional options.
+-   *   See \Drupal\paragraphs\ParagraphInterface::getSummary() for all of the
+-   *   available options.
++   *        (optional) An associative array of additional options.
++   *        See \Drupal\paragraphs\ParagraphInterface::getSummary() for all of
++   *        the
++   *        available options.
+    *
+-   * @return array
+-   *   List of content summary items for nested elements.
++   * @return array List of content summary items for nested elements.
+    */
+   protected function getNestedSummary($field_name, array $options) {
+     $summary_content = [];
+@@ -712,12 +716,11 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+    * Returns summary for all text type paragraph.
+    *
+    * @param string $field_name
+-   *   Field definition id for paragraph.
++   *        Field definition id for paragraph.
+    * @param \Drupal\Core\Field\FieldDefinitionInterface $field_definition
+-   *   Field definition for paragraph.
++   *        Field definition for paragraph.
+    *
+-   * @return string
+-   *   Short summary for text paragraph.
++   * @return string Short summary for text paragraph.
+    */
+   public function getTextSummary($field_name, FieldDefinitionInterface $field_definition) {
+     $text_types = [
+@@ -725,13 +728,13 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+       'text',
+       'text_long',
+       'list_string',
+-      'string',
++      'string'
+     ];
+ 
+     $excluded_text_types = [
+       'parent_id',
+       'parent_type',
+-      'parent_field_name',
++      'parent_field_name'
+     ];
+ 
+     $summary = '';
