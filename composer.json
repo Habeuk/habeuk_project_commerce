@@ -16,10 +16,10 @@
     ],
     "require": {
     "composer/installers": "^2.0",
-    "drupal/core-composer-scaffold": "^10.1.5",
-    "drupal/core-project-message": "^10.1.5",
-    "drupal/core-recommended": "^10.1.5",
-    "habeuk/habeuk_commerce": "dev-1x"
+    "drupal/core-composer-scaffold": "^10.2.5",
+    "drupal/core-project-message": "^10.2.5",
+    "drupal/core-recommended": "^10.2.5",
+    "habeuk/habeuk_commerce": "^2.0.2|dev-2x"
   },
     "require-dev": {
         "drupal/core-dev": "^10.1"
@@ -31,13 +31,14 @@
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
-            "composer/installers": true,
-            "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true,
-            "phpstan/extension-installer": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "cweagans/composer-patches": true
-        },
+      "composer/installers": true,
+      "drupal/core-composer-scaffold": true,
+      "drupal/core-project-message": true,
+      "phpstan/extension-installer": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "cweagans/composer-patches": true,
+      "php-http/discovery": true
+    },
         "sort-packages": true
     },   
   "extra": {
