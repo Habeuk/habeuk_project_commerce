@@ -1,0 +1,105 @@
+diff --git a/modules/order/src/Mail/OrderReceiptMail.php b/modules/order/src/Mail/OrderReceiptMail.php
+index f900d02..f84a8fe 100644
+--- a/modules/order/src/Mail/OrderReceiptMail.php
++++ b/modules/order/src/Mail/OrderReceiptMail.php
+@@ -9,47 +9,48 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
+ use Drupal\Core\StringTranslation\StringTranslationTrait;
+ 
+ class OrderReceiptMail implements OrderReceiptMailInterface {
+-
++  
+   use StringTranslationTrait;
+-
++  
+   /**
+    * The mail handler.
+    *
+    * @var \Drupal\commerce\MailHandlerInterface
+    */
+   protected $mailHandler;
+-
++  
+   /**
+    * The order total summary.
+    *
+    * @var \Drupal\commerce_order\OrderTotalSummaryInterface
+    */
+   protected $orderTotalSummary;
+-
++  
+   /**
+    * The profile view builder.
+    *
+    * @var \Drupal\profile\ProfileViewBuilder
+    */
+   protected $profileViewBuilder;
+-
++  
+   /**
+    * Constructs a new OrderReceiptMail object.
+    *
+    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+-   *   The entity type manager.
++   *        The entity type manager.
+    * @param \Drupal\commerce\MailHandlerInterface $mail_handler
+-   *   The mail handler.
++   *        The mail handler.
+    * @param \Drupal\commerce_order\OrderTotalSummaryInterface $order_total_summary
+-   *   The order total summary.
++   *        The order total summary.
+    */
+   public function __construct(EntityTypeManagerInterface $entity_type_manager, MailHandlerInterface $mail_handler, OrderTotalSummaryInterface $order_total_summary) {
+     $this->mailHandler = $mail_handler;
+     $this->orderTotalSummary = $order_total_summary;
+     $this->profileViewBuilder = $entity_type_manager->getViewBuilder('profile');
+   }
+-
++  
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function send(OrderInterface $order, $to = NULL, $bcc = NULL) {
+@@ -58,29 +59,34 @@ class OrderReceiptMail implements OrderReceiptMailInterface {
+       // The email should not be empty.
+       return FALSE;
+     }
+-
+-    $subject = $this->t('Order #@number confirmed', ['@number' => $order->getOrderNumber()]);
++    
++    $subject = $this->t('Order #@number confirmed', [
++      '@number' => $order->getOrderNumber()
++    ]);
+     $body = [
+       '#theme' => 'commerce_order_receipt',
+       '#order_entity' => $order,
+-      '#totals' => $this->orderTotalSummary->buildTotals($order),
++      '#totals' => $this->orderTotalSummary->buildTotals($order)
+     ];
+     if ($billing_profile = $order->getBillingProfile()) {
+       $body['#billing_information'] = $this->profileViewBuilder->view($billing_profile);
+     }
+-
++    $config = \Stephane888\Debug\Repositories\ConfigDrupal::config('system.site');
+     $params = [
+       'id' => 'order_receipt',
+-      'from' => $order->getStore()->getEmailFromHeader(),
++      // on force la logique, car on n'a pas prevu à la base que chaque
++      // utilisateur (ecommerce) devrait avoir une store.
++      // 'from' => $order->getStore()->getEmailFromHeader(),
++      'from' => $config['mail'],
+       'bcc' => $bcc,
+-      'order' => $order,
++      'order' => $order
+     ];
+     $customer = $order->getCustomer();
+     if ($customer->isAuthenticated()) {
+       $params['langcode'] = $customer->getPreferredLangcode();
+     }
+-
++    
+     return $this->mailHandler->sendMail($to, $subject, $body, $params);
+   }
+-
++  
+ }

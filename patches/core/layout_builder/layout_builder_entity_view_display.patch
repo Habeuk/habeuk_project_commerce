@@ -1,0 +1,60 @@
+diff --git a/modules/layout_builder/src/Entity/LayoutBuilderEntityViewDisplay.php b/modules/layout_builder/src/Entity/LayoutBuilderEntityViewDisplay.php
+index c63b96ff..c998f917 100644
+--- a/modules/layout_builder/src/Entity/LayoutBuilderEntityViewDisplay.php
++++ b/modules/layout_builder/src/Entity/LayoutBuilderEntityViewDisplay.php
+@@ -29,6 +29,12 @@ class LayoutBuilderEntityViewDisplay extends BaseEntityViewDisplay implements La
+ 
+   use LayoutEntityHelperTrait;
+   use SectionListTrait;
++  
++  /**
++   *
++   * @var \Drupal\Core\Field\FormatterPluginManager
++   */
++  protected $formaterManagerCustom;
+ 
+   /**
+    * The entity field manager.
+@@ -362,12 +368,41 @@ class LayoutBuilderEntityViewDisplay extends BaseEntityViewDisplay implements La
+     foreach ($this->getSections() as $section) {
+       $this->calculatePluginDependencies($section->getLayout());
+       foreach ($section->getComponents() as $component) {
+-        $this->calculatePluginDependencies($component->getPlugin());
++        $plugin = $component->getPlugin();
++        $this->calculatePluginDependencies($plugin);
++        /**
++         * Pour les champs formatter, layout builder ne parvient pas à ajouter
++         * les dependances definit dans le formatteur.
++         */
++        if ($plugin instanceof \Drupal\layout_builder\Plugin\Block\FieldBlock) {
++          /**
++           *
++           * @var \Drupal\layout_builder\Plugin\Block\FieldBlock $plugin
++           */
++          $configuration = $plugin->getConfiguration();
++          if (!empty($configuration['formatter']['type'])) {
++            $formatterDefinition = $this->loadPluginFieldFormatter()->getDefinition($configuration['formatter']['type']);
++            if ($formatterDefinition) {
++              $this->addDependency('module', $formatterDefinition['provider']);
++            }
++          }
++        }
+       }
+     }
+ 
+     return $this;
+   }
++  
++  /**
++   *
++   * @return \Drupal\Core\Field\FormatterPluginManager
++   */
++  protected function loadPluginFieldFormatter() {
++    if (!$this->formaterManagerCustom) {
++      $this->formaterManagerCustom = \Drupal::service('plugin.manager.field.formatter');
++    }
++    return $this->formaterManagerCustom;
++  }
+ 
+   /**
+    * {@inheritdoc}

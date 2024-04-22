@@ -1,0 +1,20 @@
+diff --git a/modules/order/src/Mail/OrderReceiptMail.php b/modules/order/src/Mail/OrderReceiptMail.php
+index adbac5c..36c0384 100644
+--- a/modules/order/src/Mail/OrderReceiptMail.php
++++ b/modules/order/src/Mail/OrderReceiptMail.php
+@@ -60,10 +60,13 @@ class OrderReceiptMail implements OrderReceiptMailInterface {
+       $profile_view_builder = $this->entityTypeManager->getViewBuilder('profile');
+       $body['#billing_information'] = $profile_view_builder->view($billing_profile);
+     }
+-
++	$config = \Stephane888\Debug\Repositories\ConfigDrupal::config('system.site');
+     $params = [
+       'id' => 'order_receipt',
+-      'from' => $order->getStore()->getEmailFromHeader(),
++	// on force la logique, car on n'a pas prevu à la base que chaque
++	// utilisateur (ecommerce) devrait avoir une store.
++	//'from' => $order->getStore()->getEmailFromHeader(),
++       'from' => $config['mail'],
+       'bcc' => $bcc,
+       'order' => $order,
+       'resend' => $resend,
