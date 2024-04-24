@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5880432ce773e202ca05ad15bd272cac",
+    "content-hash": "b04aa0f4d66f9e9224d93f8323f5c5e9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5993,16 +5993,16 @@
         },
         {
             "name": "habeuk/habeuk_commerce",
-            "version": "2.0.5",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Habeuk/habeuk_commerce.git",
-                "reference": "8be8cc9a98b35ce052971504d8d8080d903848dd"
+                "reference": "3fd23517952b1fb763e12526ece6e93e2feb4baa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Habeuk/habeuk_commerce/zipball/8be8cc9a98b35ce052971504d8d8080d903848dd",
-                "reference": "8be8cc9a98b35ce052971504d8d8080d903848dd",
+                "url": "https://api.github.com/repos/Habeuk/habeuk_commerce/zipball/3fd23517952b1fb763e12526ece6e93e2feb4baa",
+                "reference": "3fd23517952b1fb763e12526ece6e93e2feb4baa",
                 "shasum": ""
             },
             "require": {
@@ -6036,9 +6036,9 @@
             "description": "profile habeuk",
             "support": {
                 "issues": "https://github.com/Habeuk/habeuk_commerce/issues",
-                "source": "https://github.com/Habeuk/habeuk_commerce/tree/2.0.5"
+                "source": "https://github.com/Habeuk/habeuk_commerce/tree/2.0.8"
             },
-            "time": "2024-04-23T13:34:24+00:00"
+            "time": "2024-04-24T05:04:12+00:00"
         },
         {
             "name": "habeuk/habeuk_minimal_profile",
@@ -6088,16 +6088,16 @@
         },
         {
             "name": "habeuk/habeuk_profile",
-            "version": "4.2.1",
+            "version": "4.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Habeuk/habeuk_profile.git",
-                "reference": "ec64a453d6abb7a29133efbe8bc966e5a2bf6fee"
+                "reference": "8653486ae0e32b52bcbddfcc99c3533615090b9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Habeuk/habeuk_profile/zipball/ec64a453d6abb7a29133efbe8bc966e5a2bf6fee",
-                "reference": "ec64a453d6abb7a29133efbe8bc966e5a2bf6fee",
+                "url": "https://api.github.com/repos/Habeuk/habeuk_profile/zipball/8653486ae0e32b52bcbddfcc99c3533615090b9d",
+                "reference": "8653486ae0e32b52bcbddfcc99c3533615090b9d",
                 "shasum": ""
             },
             "require": {
@@ -6125,9 +6125,9 @@
             "description": "profile habeuk",
             "support": {
                 "issues": "https://github.com/Habeuk/habeuk_profile/issues",
-                "source": "https://github.com/Habeuk/habeuk_profile/tree/4.2.1"
+                "source": "https://github.com/Habeuk/habeuk_profile/tree/4.2.2"
             },
-            "time": "2024-04-22T16:01:44+00:00"
+            "time": "2024-04-24T04:54:07+00:00"
         },
         {
             "name": "habeuk/habeuk_utilitaire",
