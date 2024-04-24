@@ -19,7 +19,7 @@
     "drupal/core-composer-scaffold": "^10.2.5",
     "drupal/core-project-message": "^10.2.5",
     "drupal/core-recommended": "^10.2.5",
-    "habeuk/habeuk_commerce": "^2.0.4|dev-2x"
+    "habeuk/habeuk_commerce": "^2.0.5|dev-2x"
   },
   "require-dev" : {
 		"drupal/core-dev" : "^10.2.5"

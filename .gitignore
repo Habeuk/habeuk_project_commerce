@@ -2,7 +2,6 @@
 /drush/contrib/
 /vendor/
 /web
-/composer.lock
 /core/
 /modules/
 /profiles/
