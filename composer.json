@@ -110,6 +110,9 @@
 			"drupal/paragraphs": {
 				" Ajout du lien canonique au paragraph afin qu'on puisse editer les layout ": "patches/paragraphs/paragraphs.patch",
 				" Ajout du champs pour la configuration des langues au niveau des types de paragraphs ": "patches/paragraphs/paragraphs-language.patch"
+			},
+			"drupal/commerce": {
+				"Redefinition du fournisseur d'identification des comptes de paiements": "patches/commerce/payment-payment-gatewaybase.patch"
 			}
 		}
 	}  

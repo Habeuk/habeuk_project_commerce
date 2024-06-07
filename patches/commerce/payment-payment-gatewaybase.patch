@@ -1,0 +1,38 @@
+diff --git a/modules/payment/src/Plugin/Commerce/PaymentGateway/PaymentGatewayBase.php b/modules/payment/src/Plugin/Commerce/PaymentGateway/PaymentGatewayBase.php
+index 938710b..372ca7d 100644
+--- a/modules/payment/src/Plugin/Commerce/PaymentGateway/PaymentGatewayBase.php
++++ b/modules/payment/src/Plugin/Commerce/PaymentGateway/PaymentGatewayBase.php
+@@ -493,7 +493,7 @@ abstract class PaymentGatewayBase extends PluginBase implements PaymentGatewayIn
+   public function getRemoteCustomerId(UserInterface $account) {
+     $remote_id = NULL;
+     if (!$account->isAnonymous()) {
+-      $provider = $this->parentEntity->id() . '|' . $this->getMode();
++      $provider = $this->getProviderKey();
+       /** @var \Drupal\commerce\Plugin\Field\FieldType\RemoteIdFieldItemListInterface $remote_ids */
+       $remote_ids = $account->get('commerce_remote_id');
+       $remote_id = $remote_ids->getByProvider($provider);
+@@ -523,10 +523,22 @@ abstract class PaymentGatewayBase extends PluginBase implements PaymentGatewayIn
+     if (!$account->isAnonymous()) {
+       /** @var \Drupal\commerce\Plugin\Field\FieldType\RemoteIdFieldItemListInterface $remote_ids */
+       $remote_ids = $account->get('commerce_remote_id');
+-      $remote_ids->setByProvider($this->parentEntity->id() . '|' . $this->getMode(), $remote_id);
++      $remote_ids->setByProvider($this->getProviderKey(), $remote_id);
+     }
+   }
+-
++  
++  /**
++   * Custom code
++   */
++  protected function getProviderKey() {
++    $provider = $this->parentEntity->id() . '|' . $this->getMode();
++    $configuration = $this->getConfiguration();
++    if (!empty($configuration['publishable_key'])) {
++      $provider .= substr($configuration['publishable_key'], 0, 100);
++    }
++    return $provider;
++  }
++  
+   /**
+    * Asserts that the payment state matches one of the allowed states.
+    *
