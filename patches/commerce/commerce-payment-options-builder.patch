@@ -1,0 +1,51 @@
+diff --git a/modules/payment/src/PaymentOptionsBuilder.php b/modules/payment/src/PaymentOptionsBuilder.php
+index 497ccac..054db51 100644
+--- a/modules/payment/src/PaymentOptionsBuilder.php
++++ b/modules/payment/src/PaymentOptionsBuilder.php
+@@ -145,27 +145,41 @@ class PaymentOptionsBuilder implements PaymentOptionsBuilderInterface {
+   }
+ 
+   /**
++   *
+    * {@inheritdoc}
+    */
+   public function selectDefaultOption(OrderInterface $order, array $options) {
+-    /** @var \Drupal\commerce_payment\Entity\PaymentGatewayInterface $order_payment_gateway */
++    /** @var \Drupal\commerce_payment\Entity\PaymentGateway $order_payment_gateway */
+     $order_payment_gateway = $order->get('payment_gateway')->entity;
+     /** @var \Drupal\commerce_payment\Entity\PaymentMethodInterface $order_payment_method */
+     $order_payment_method = $order->get('payment_method')->entity;
+-
++    
+     $default_option_id = NULL;
+     if ($order_payment_method) {
+       $default_option_id = $order_payment_method->id();
+     }
+     elseif ($order_payment_gateway && !($order_payment_gateway instanceof SupportsStoredPaymentMethodsInterface)) {
+       $default_option_id = $order_payment_gateway->id();
++      // On verifie s'il faut verifier les sous clées.
++      if (!isset($options[$default_option_id])) {
++        foreach ($options as $option) {
++          /**
++           *
++           * @var \Drupal\commerce_payment\PaymentOption $option
++           */
++          if ($default_option_id == $option->getPaymentGatewayId()) {
++            $default_option_id = $option->getId();
++            break;
++          }
++        }
++      }
+     }
+-    // The order doesn't have a payment method/gateway specified, or it has, but it is no longer available.
++    // The order doesn't have a payment method/gateway specified, or it has, but
++    // it is no longer available.
+     if (!$default_option_id || !isset($options[$default_option_id])) {
+       $option_ids = array_keys($options);
+       $default_option_id = reset($option_ids);
+-    }
+-
++    }    
+     return $options[$default_option_id];
+   }
+ 
