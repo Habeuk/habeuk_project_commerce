@@ -1,0 +1,29 @@
+diff --git a/search_api.module b/search_api.module
+index 36ebd79..467fa3f 100644
+--- a/search_api.module
++++ b/search_api.module
+@@ -411,14 +411,16 @@ function search_api_views_plugins_filter_alter(array &$plugins) {
+   // We have to include the term filter handler like this, since adding it
+   // directly (i.e., with an annotation) would cause fatal errors on sites
+   // without the Taxonomy module.
+-  if (\Drupal::moduleHandler()->moduleExists('taxonomy')) {
+-    $plugins['search_api_term'] = [
+-      'plugin_type' => 'filter',
+-      'id' => 'search_api_term',
+-      'class' => TermFilter::class,
+-      'provider' => 'search_api',
+-    ];
+-  }
++  // On masque ceci car c'est le module more_fields qui va l'initialiser.
++  // if (\Drupal::moduleHandler()->moduleExists('taxonomy')) {
++  //   $plugins['search_api_term'] = [
++  //     'plugin_type' => 'filter',
++  //     'id' => 'search_api_term',
++  //     'class' => TermFilter::class,
++  //      'provider' => 'search_api',
++  //   ];
++  // }
++  
+ }
+ 
+ /**
