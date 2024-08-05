@@ -23,7 +23,8 @@
   },
   "require-dev" : {
     "drupal/core-dev": "^10.2.5",
-    "stephane888/export_import_entities": "^3.0.3"
+    "drupal/devel_entity_updates": "^4.1",
+    "stephane888/export_import_entities": "^3.0.4"
   },
 	"conflict" : {
 		"drupal/drupal" : "*"
