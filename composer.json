@@ -22,8 +22,9 @@
     "habeuk/habeuk_commerce": "^2.0.8|dev-2x"
   },
   "require-dev" : {
-		"drupal/core-dev" : "^10.2.5"
-	},
+    "drupal/core-dev": "^10.2.5",
+    "stephane888/export_import_entities": "^3.0.3"
+  },
 	"conflict" : {
 		"drupal/drupal" : "*"
 	},
