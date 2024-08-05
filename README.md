@@ -6,7 +6,7 @@ Creer un dossier nommé /siteweb/mydrupal, acceder à ce dossier et executer la 
 
 ```
 cd /siteweb/mydrupal
-composer create-project habeuk/habeuk_project_commerce:dev-10x public --no-interaction
+composer create-project habeuk/habeuk_project_commerce:^10.0.0 public --no-interaction
 ```
 
 Cette commande cree un dossier public et y telechage les fichiers de drupal. ( plus d'infos ).
