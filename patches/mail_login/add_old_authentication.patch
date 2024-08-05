@@ -1,0 +1,36 @@
+diff --git a/src/AuthDecorator.php b/src/AuthDecorator.php
+index 2143531..7cf22fa 100644
+--- a/src/AuthDecorator.php
++++ b/src/AuthDecorator.php
+@@ -9,12 +9,13 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
+ use Drupal\Core\Messenger\MessengerInterface;
+ use Drupal\Core\StringTranslation\StringTranslationTrait;
+ use Drupal\user\UserAuthenticationInterface;
++use Drupal\user\UserAuthInterface;
+ use Drupal\user\UserInterface;
+ 
+ /**
+  * Validates user authentication credentials.
+  */
+-class AuthDecorator implements UserAuthenticationInterface {
++class AuthDecorator implements UserAuthInterface, UserAuthenticationInterface {
+   use DependencySerializationTrait;
+   use StringTranslationTrait;
+ 
+@@ -135,5 +136,16 @@ class AuthDecorator implements UserAuthenticationInterface {
+   public function authenticateAccount(UserInterface $account, string $password): bool {
+     return $this->userAuth->authenticateAccount($account, $password);
+   }
++  
++  /**
++   * {@inheritDoc}
++   */
++  public function authenticate($username, $password) {
++    $account = user_load_by_name($username);
++    if ($account) {
++      return $this->userAuth->authenticateAccount($account, $password);
++    }
++    return FALSE;
++  }
+ 
+ }

@@ -119,6 +119,9 @@
 			"drupal/commerce": {
 				"Redefinition du fournisseur d'identification des comptes de paiements": "patches/commerce/payment-payment-gatewaybase.patch",
 				"Recupere le paiement selectionner via le order::'payment_gateway' ": "patches/commerce/commerce-payment-options-builder.patch"
+			},
+			"drupal/mail_login": {
+				" Bug, voir /project/mail_login/issues/3464301, probleme d'authentification ": "patches/mail_login/add_old_authentication.patch"
 			}
 		}
 	}  
