@@ -6,14 +6,14 @@ Creer un dossier nommé /siteweb/mydrupal, acceder à ce dossier et executer la 
 
 ```
 cd /siteweb/mydrupal
-composer create-project habeuk/habeuk_project_commerce:^10.0.0 public --no-interaction
+composer create-project habeuk/habeuk_project_commerce:^10.0.1 public --no-interaction
 ```
 
 Cette commande cree un dossier public et y telechage les fichiers de drupal. ( plus d'infos ).
 
 ## Requirement
 
-composer >= 2.6.5 and PHP >= 8.1
+composer >= 2.6.5 and PHP >= 8.3
 
 ```
 composer clearcache
@@ -28,7 +28,7 @@ Acceder au dossier /siteweb/mydrupal/public/web et execute la commande :
 
 ```
 cd /siteweb/mydrupal/public/web
-php -d memory_limit=256M ./core/scripts/drupal quick-start habeuk_profile
+php -d memory_limit=256M ./core/scripts/drupal quick-start habeuk_commerce
 ```
 
 Cette commande installe Drupal en utilisant le moteur de base de donnée SQLite.
@@ -40,7 +40,7 @@ Vous devez avoir un serveur web et un hote virtuel configuré
 Acceder au dossier public, executer les commande suivantes :
 
 ```
-vendor/bin/drush site:install habeuk_profile
+vendor/bin/drush site:install habeuk_commerce
 ```
 
 Suivez les instructions afin de terminer l'installation de drupal 10.
