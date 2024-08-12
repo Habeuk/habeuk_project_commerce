@@ -109,12 +109,19 @@
 			]
 		},
 		"patches": {
+			"drupal/core": {
+				"Ajout de l'id au niveau du label, champs autocomplete entitie": "patches/core/entity_autocomplete_matcher.patch"
+			},
+			"drupal/inline_entity_form": {
+                " Save default value complex inline form ": "https://www.drupal.org/files/issues/2019-03-20/complex_widget_default_value-3041572-5.patch"
+            },
 			"drupal/search_api": {
 				" desactivation du plugin:filter::search_api_term definie dans search_api.module ": "patches/search_api/search_api_module.patch"
 			},
 			"drupal/paragraphs": {
 				" Ajout du lien canonique au paragraph afin qu'on puisse editer les layout ": "patches/paragraphs/paragraphs.patch",
-				" Ajout du champs pour la configuration des langues au niveau des types de paragraphs ": "patches/paragraphs/paragraphs-language.patch"
+				" Ajout du champs pour la configuration des langues au niveau des types de paragraphs ": "patches/paragraphs/paragraphs-language.patch",
+				" Modifications de la logique des filtres de references ": "patches/paragraphs/paragraphs_ref_selectiob.patch"
 			},
 			"drupal/commerce": {
 				"Redefinition du fournisseur d'identification des comptes de paiements": "patches/commerce/payment-payment-gatewaybase.patch",

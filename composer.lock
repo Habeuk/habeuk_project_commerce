@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "80f8eb6b77e617a6945bee6b94a07bde",
+    "content-hash": "7b0932e515ed54c6cf63ab138646da34",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6895,16 +6895,16 @@
         },
         {
             "name": "habeuk/habeuk_profile",
-            "version": "4.4.12",
+            "version": "4.4.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Habeuk/habeuk_profile.git",
-                "reference": "40b61f9562ef5ebf6492174092bb40dca0d43e27"
+                "reference": "a8b635baf32524c1680080a953422936c49d7ab5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Habeuk/habeuk_profile/zipball/40b61f9562ef5ebf6492174092bb40dca0d43e27",
-                "reference": "40b61f9562ef5ebf6492174092bb40dca0d43e27",
+                "url": "https://api.github.com/repos/Habeuk/habeuk_profile/zipball/a8b635baf32524c1680080a953422936c49d7ab5",
+                "reference": "a8b635baf32524c1680080a953422936c49d7ab5",
                 "shasum": ""
             },
             "require": {
@@ -6919,7 +6919,9 @@
                 "habeuk/blockscontent": "^2.0.0|dev-2x",
                 "habeuk/drupal_utility": "^1.0.0|dev-1x",
                 "habeuk/habeuk_minimal_profile": "^1.2.1",
-                "habeuk/habeuk_utilitaire": "dev-1x|^1.0.2"
+                "habeuk/habeuk_utilitaire": "dev-1x|^1.0.2",
+                "habeuk/mit_models": "^1.1.4",
+                "habeuk/vixcon": "^1.1.5"
             },
             "type": "drupal-custom-profile",
             "notification-url": "https://packagist.org/downloads/",
@@ -6935,9 +6937,9 @@
             "description": "profile habeuk",
             "support": {
                 "issues": "https://github.com/Habeuk/habeuk_profile/issues",
-                "source": "https://github.com/Habeuk/habeuk_profile/tree/4.4.12"
+                "source": "https://github.com/Habeuk/habeuk_profile/tree/4.4.14"
             },
-            "time": "2024-08-06T06:30:05+00:00"
+            "time": "2024-08-07T03:44:43+00:00"
         },
         {
             "name": "habeuk/habeuk_utilitaire",
@@ -7125,6 +7127,41 @@
             "time": "2024-07-24T19:40:44+00:00"
         },
         {
+            "name": "habeuk/mit_models",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Habeuk/mit_models.git",
+                "reference": "043f96fc55e49f52855e16f46052e10d3afbffde"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Habeuk/mit_models/zipball/043f96fc55e49f52855e16f46052e10d3afbffde",
+                "reference": "043f96fc55e49f52855e16f46052e10d3afbffde",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/formatage_models": "^4.1.23|dev-4x"
+            },
+            "type": "drupal-custom-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "noumecha spaker",
+                    "email": "noumechaivan@gmail.com"
+                }
+            ],
+            "description": "new drupal module for a new site.",
+            "support": {
+                "issues": "https://github.com/Habeuk/mit_models/issues",
+                "source": "https://github.com/Habeuk/mit_models/tree/1.1.4"
+            },
+            "time": "2024-07-18T13:16:27+00:00"
+        },
+        {
             "name": "habeuk/spaker_mod",
             "version": "2.1.7",
             "source": {
@@ -7190,6 +7227,41 @@
                 "source": "https://github.com/Habeuk/view_filter_promotion/tree/1.0.0-alpha3"
             },
             "time": "2024-01-01T11:20:08+00:00"
+        },
+        {
+            "name": "habeuk/vixcon",
+            "version": "1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Habeuk/vixcon.git",
+                "reference": "ca545635348035a3720f0d7bd22e465067733e8c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Habeuk/vixcon/zipball/ca545635348035a3720f0d7bd22e465067733e8c",
+                "reference": "ca545635348035a3720f0d7bd22e465067733e8c",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/formatage_models": "^4.0|dev-4x"
+            },
+            "type": "drupal-custom-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "justin",
+                    "email": "justinonomo@gmail.com"
+                }
+            ],
+            "description": "Provide event website layouts",
+            "support": {
+                "issues": "https://github.com/Habeuk/vixcon/issues",
+                "source": "https://github.com/Habeuk/vixcon/tree/1.1.5"
+            },
+            "time": "2024-08-07T03:38:14+00:00"
         },
         {
             "name": "kint-php/kint",
@@ -13591,7 +13663,7 @@
             "extra": {
                 "drupal": {
                     "version": "4.1.1",
-                    "datestamp": "1682701896",
+                    "datestamp": "1722958666",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -17259,16 +17331,16 @@
         },
         {
             "name": "stephane888/export_import_entities",
-            "version": "3.0.4",
+            "version": "3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stephane888/export_import_entities.git",
-                "reference": "a923b58cc94e39a49d329fa345f4b6021155904b"
+                "reference": "81f670427291a0776e6adf5c735597a8b6599b5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stephane888/export_import_entities/zipball/a923b58cc94e39a49d329fa345f4b6021155904b",
-                "reference": "a923b58cc94e39a49d329fa345f4b6021155904b",
+                "url": "https://api.github.com/repos/stephane888/export_import_entities/zipball/81f670427291a0776e6adf5c735597a8b6599b5f",
+                "reference": "81f670427291a0776e6adf5c735597a8b6599b5f",
                 "shasum": ""
             },
             "require": {
@@ -17289,9 +17361,9 @@
             "description": "permet d'extraire les configurations pour un ou plusieurs entités.",
             "support": {
                 "issues": "https://github.com/stephane888/export_import_entities/issues",
-                "source": "https://github.com/stephane888/export_import_entities/tree/3.0.4"
+                "source": "https://github.com/stephane888/export_import_entities/tree/3.0.5"
             },
-            "time": "2024-08-05T05:05:25+00:00"
+            "time": "2024-08-06T15:57:30+00:00"
         },
         {
             "name": "symfony/browser-kit",

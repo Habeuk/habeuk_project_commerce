@@ -1,0 +1,13 @@
+diff --git a/lib/Drupal/Core/Entity/EntityAutocompleteMatcher.php b/lib/Drupal/Core/Entity/EntityAutocompleteMatcher.php
+index ab18ba09..2a23c8ae 100644
+--- a/lib/Drupal/Core/Entity/EntityAutocompleteMatcher.php
++++ b/lib/Drupal/Core/Entity/EntityAutocompleteMatcher.php
+@@ -55,7 +55,7 @@ class EntityAutocompleteMatcher implements EntityAutocompleteMatcherInterface {
+           $key = preg_replace('/\s\s+/', ' ', str_replace("\n", '', trim(Html::decodeEntities(strip_tags($key)))));
+           // Names containing commas or quotes must be wrapped in quotes.
+           $key = Tags::encode($key);
+-          $matches[] = ['value' => $key, 'label' => $label];
++          $matches[] = ['value' => $key, 'label' => "($entity_id) ". $label];
+         }
+       }
+     }
