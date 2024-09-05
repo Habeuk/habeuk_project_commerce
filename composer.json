@@ -12,19 +12,42 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "path",
+            "url": "/siteweb/DrupalProfiles/habeuk_commerce",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "/siteweb/DrupalModules/export_import_entities",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "/siteweb/DrupalModules/more_fields",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "require": {
     "composer/installers": "^2.0",
-    "drupal/core-composer-scaffold": "^10.2.5",
-    "drupal/core-project-message": "^10.2.5",
-    "drupal/core-recommended": "^10.2.5",
-    "habeuk/habeuk_commerce": "^2.0.21|dev-2x"
+    "drupal/core-composer-scaffold": "^10.3.1",
+    "drupal/core-project-message": "^10.3.1",
+    "drupal/core-recommended": "^10.3.1",
+    "habeuk/habeuk_commerce": "^2.0.23|dev-2x",
+    "habeuk/more_fields": "2.x-dev"
   },
   "require-dev" : {
-    "drupal/core-dev": "^10.2.5",
+    "drupal/core-dev": "^10.3.1",
     "drupal/devel_entity_updates": "^4.1",
-    "stephane888/export_import_entities": "^3.0.4"
+    "habeuk/contextual_more_links": "^1.0",
+    "stephane888/export_import_entities": "^3.0.4|dev-3x"
   },
 	"conflict" : {
 		"drupal/drupal" : "*"

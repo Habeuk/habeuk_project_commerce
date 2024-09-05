@@ -7,6 +7,10 @@
 /profiles/
 /sites/
 /themes/
+/logs
+/logs/*
+/.buildpath
+/.settings
 
 # Ignore sensitive information
 /web/sites/*/settings.php
@@ -39,3 +43,4 @@
 /update.php
 /web.config
 /.project
+
