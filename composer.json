@@ -1,24 +1,17 @@
 {
-  "name": "habeuk/habeuk_project_commerce",
-  "description": "Drupal 10 by habeuk, @see https://github.com/drupal/recommended-project/blob/10.1.x for more information. ",
-  "type": "project",
-  "license": "GPL-2.0-or-later",
-  "homepage": "https://www.drupal.org/project/drupal",
-  "support": {
-    "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
-    "chat": "https://www.drupal.org/node/314178"
-  },  
-  "repositories": [
+    "name": "habeuk/habeuk_project_commerce",
+    "description": "Drupal 10 by habeuk, @see https://github.com/drupal/recommended-project/blob/10.1.x for more information. ",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.drupal.org/project/drupal",
+    "support": {
+        "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
+        "chat": "https://www.drupal.org/node/314178"
+    },
+    "repositories": [
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        {
-            "type": "path",
-            "url": "/siteweb/DrupalProfiles/habeuk_commerce",
-            "options": {
-                "symlink": true
-            }
         },
         {
             "type": "path",
@@ -26,130 +19,122 @@
             "options": {
                 "symlink": true
             }
-        },
-        {
-            "type": "path",
-            "url": "/siteweb/DrupalModules/more_fields",
-            "options": {
-                "symlink": true
-            }
         }
     ],
     "require": {
-    "composer/installers": "^2.0",
-    "drupal/core-composer-scaffold": "^10.3.1",
-    "drupal/core-project-message": "^10.3.1",
-    "drupal/core-recommended": "^10.3.1",
-    "habeuk/habeuk_commerce": "^2.0.23|dev-2x",
-    "habeuk/more_fields": "2.x-dev"
-  },
-  "require-dev" : {
-    "drupal/core-dev": "^10.3.1",
-    "drupal/devel_entity_updates": "^4.1",
-    "habeuk/contextual_more_links": "^1.0",
-    "stephane888/export_import_entities": "^3.0.4|dev-3x"
-  },
-	"conflict" : {
-		"drupal/drupal" : "*"
-	},
-	"minimum-stability" : "dev",
-	"prefer-stable" : true,
-	"config" : {
-		"allow-plugins" : {
-			"composer/installers" : true,
-			"drupal/core-composer-scaffold" : true,
-			"drupal/core-project-message" : true,
-			"phpstan/extension-installer" : true,
-			"dealerdirect/phpcodesniffer-composer-installer" : true,
-			"cweagans/composer-patches" : true,
-			"php-http/discovery" : true
-		},
-		"sort-packages" : true
-	},
-	"autoload" : {
-		"classmap" : [
-			"scripts/NpmPackage.php",
-			"scripts/GiveAccessInDirs.php"
-		]
-	},
-	"scripts" : {
-		"post-install-cmd" : "DrupalHabeuk\\NpmPackage::PostInstall"
-	},
-	"extra" : {
-		"drupal-scaffold" : {
-			"locations" : {
-				"web-root" : "web/"
-			}
-		},
-		"installer-paths" : {
-			"web/core" : [
-				"type:drupal-core"
-			],
-			"web/libraries/{$name}" : [
-				"type:drupal-library"
-			],
-			"web/modules/contrib/{$name}" : [
-				"type:drupal-module"
-			],
-			"web/profiles/contrib/{$name}" : [
-				"type:drupal-profile"
-			],
-			"web/themes/contrib/{$name}" : [
-				"type:drupal-theme"
-			],
-			"drush/Commands/contrib/{$name}" : [
-				"type:drupal-drush"
-			],
-			"web/modules/custom/{$name}" : [
-				"type:drupal-custom-module"
-			],
-			"web/profiles/custom/{$name}" : [
-				"type:drupal-custom-profile"
-			],
-			"web/themes/custom/{$name}" : [
-				"type:drupal-custom-theme"
-			]
-		},
-		"drupal-core-project-message" : {
-			"include-keys" : [
-				"homepage",
-				"support"
-			],
-			"post-create-project-cmd-message" : [
-				"<bg=blue;fg=white>                                                         </>",
-				"<bg=blue;fg=white>  Congratulations, you\u2019ve installed the Drupal codebase  </>",
-				"<bg=blue;fg=white>  from habeuk.com. @See habeuk/drupal_project_habeuk          </>",
-				"<bg=blue;fg=white>                                                         </>",
-				"",
-				"<bg=yellow;fg=black>Next steps</>:",
-				"  * Install the site: https://www.drupal.org/docs/installing-drupal",
-				"  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
-				"  * Get support: https://www.drupal.org/support",
-				"  * Get involved with the Drupal community:",
-				"      https://www.drupal.org/getting-involved",
-				"  * Remove the plugin that prints this message:",
-				"      composer remove drupal/core-project-message"
-			]
-		},
-		"patches": {
-			"drupal/core": {
-				"Ajout de l'id au niveau du label, champs autocomplete entitie": "patches/core/entity_autocomplete_matcher.patch"
-			},
-			"drupal/inline_entity_form": {
+        "composer/installers": "^2.0",
+        "drupal/core-composer-scaffold": "^10.3.5",
+        "drupal/core-project-message": "^10.3.5",
+        "drupal/core-recommended": "^10.3.5",
+        "habeuk/habeuk_commerce": "^2.0.29|dev-2x"
+    },
+    "require-dev": {
+        "drupal/core-dev": "^10.3.5",
+        "drupal/devel_entity_updates": "^4.1",
+        "habeuk/contextual_more_links": "^1.0",
+        "stephane888/export_import_entities": "^3.0.29|dev-3x"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "phpstan/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "cweagans/composer-patches": true,
+            "php-http/discovery": true
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/NpmPackage.php",
+            "scripts/GiveAccessInDirs.php"
+        ]
+    },
+    "scripts": {
+        "post-install-cmd": "DrupalHabeuk\\NpmPackage::PostInstall"
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ]
+        },
+        "drupal-core-project-message": {
+            "include-keys": [
+                "homepage",
+                "support"
+            ],
+            "post-create-project-cmd-message": [
+                "<bg=blue;fg=white>                                                         </>",
+                "<bg=blue;fg=white>  Congratulations, you’ve installed the Drupal codebase  </>",
+                "<bg=blue;fg=white>  from habeuk.com. @See habeuk/drupal_project_habeuk          </>",
+                "<bg=blue;fg=white>                                                         </>",
+                "",
+                "<bg=yellow;fg=black>Next steps</>:",
+                "  * Install the site: https://www.drupal.org/docs/installing-drupal",
+                "  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
+                "  * Get support: https://www.drupal.org/support",
+                "  * Get involved with the Drupal community:",
+                "      https://www.drupal.org/getting-involved",
+                "  * Remove the plugin that prints this message:",
+                "      composer remove drupal/core-project-message"
+            ]
+        },
+        "patches": {
+            "drupal/core": {
+                "Ajout de l'id au niveau du label, champs autocomplete entitie": "patches/core/entity_autocomplete_matcher.patch"
+            },
+            "drupal/inline_entity_form": {
                 " Save default value complex inline form ": "https://www.drupal.org/files/issues/2019-03-20/complex_widget_default_value-3041572-5.patch"
             },
-			"drupal/search_api": {
-				" desactivation du plugin:filter::search_api_term definie dans search_api.module ": "patches/search_api/search_api_module.patch"
-			},
-			"drupal/paragraphs": {
-				" Ajout du lien canonique au paragraph afin qu'on puisse editer les layout ": "patches/paragraphs/paragraphs.patch",
-				" Ajout du champs pour la configuration des langues au niveau des types de paragraphs ": "patches/paragraphs/paragraphs-language.patch",
-				" Modifications de la logique des filtres de references ": "patches/paragraphs/paragraphs_ref_selectiob.patch"
-			},
-			"drupal/commerce": {
-				"Redefinition du fournisseur d'identification des comptes de paiements": "patches/commerce/payment-payment-gatewaybase.patch",
-				"Recupere le paiement selectionner via le order::'payment_gateway' ": "patches/commerce/commerce-payment-options-builder.patch"
-			}
-		}
-	}  
+            "drupal/search_api": {
+                " desactivation du plugin:filter::search_api_term definie dans search_api.module ": "patches/search_api/search_api_module.patch"
+            },
+            "drupal/paragraphs": {
+                " Ajout du lien canonique au paragraph afin qu'on puisse editer les layout ": "patches/paragraphs/paragraphs.patch",
+                " Ajout du champs pour la configuration des langues au niveau des types de paragraphs ": "patches/paragraphs/paragraphs-language.patch",
+                " Modifications de la logique des filtres de references ": "patches/paragraphs/paragraphs_ref_selectiob.patch"
+            },
+            "drupal/commerce": {
+                "Redefinition du fournisseur d'identification des comptes de paiements": "patches/commerce/payment-payment-gatewaybase.patch",
+                "Recupere le paiement selectionner via le order::'payment_gateway' ": "patches/commerce/commerce-payment-options-builder.patch"
+            }
+        }
+    }
 }
