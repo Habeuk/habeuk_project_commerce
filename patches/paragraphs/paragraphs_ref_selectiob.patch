@@ -1,13 +1,13 @@
 diff --git a/src/Plugin/EntityReferenceSelection/ParagraphSelection.php b/src/Plugin/EntityReferenceSelection/ParagraphSelection.php
-index fb4a04d..974c45a 100644
+index fb4a04d..21a1e41 100644
 --- a/src/Plugin/EntityReferenceSelection/ParagraphSelection.php
 +++ b/src/Plugin/EntityReferenceSelection/ParagraphSelection.php
-@@ -277,6 +277,33 @@ class ParagraphSelection extends DefaultSelection {
+@@ -277,6 +277,34 @@ class ParagraphSelection extends DefaultSelection {
      if (isset($match) && $label_key = $entity_type->getKey('label')) {
        $query->condition($label_key, $match, $match_operator);
      }
-+    else{
-+    	// On doit permettre d'effectuer dans un format particulier
++    else {
++      // On doit permettre d'effectuer dans un format particulier
 +      /**
 +       * Le texte de recherche peut avoir deux approche :
 +       * 1- le texte => la recherche se fait via le type.
@@ -15,23 +15,24 @@ index fb4a04d..974c45a 100644
 +       * l'operateur et de la valeur.
 +       * Example : [type=dd:id>12]
 +       */
-+      if (str_contains($match, "%%")) {
-+        $array = explode("%%", $match);
-+        $stringQuery = $array[1];
-+        $fields = explode(":", $stringQuery);
-+        foreach ($fields as $field) {
-+          if (str_contains($field, "=")) {
-+            [
-+              $field_name,
-+              $value
-+            ] = explode("=", $field);
++      if (!empty($match))
++        if (str_contains($match, "%%")) {
++          $array = explode("%%", $match);
++          $stringQuery = $array[1];
++          $fields = explode(":", $stringQuery);
++          foreach ($fields as $field) {
++            if (str_contains($field, "=")) {
++              [
++                $field_name,
++                $value
++              ] = explode("=", $field);
++            }
++            dump($field_name, $value);
 +          }
-+          dump($field_name, $value);
 +        }
-+      }
-+      else {
-+        $query->condition("type", $match, $match_operator);
-+      }
++        else {
++          $query->condition("type", $match, $match_operator);
++        }
 +    }
  
      // Add entity-access tag.
