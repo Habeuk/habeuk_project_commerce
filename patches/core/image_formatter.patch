@@ -1,0 +1,13 @@
+diff --git a/modules/image/src/Plugin/Field/FieldFormatter/ImageFormatter.php b/modules/image/src/Plugin/Field/FieldFormatter/ImageFormatter.php
+index 0131e479..c3513851 100644
+--- a/modules/image/src/Plugin/Field/FieldFormatter/ImageFormatter.php
++++ b/modules/image/src/Plugin/Field/FieldFormatter/ImageFormatter.php
+@@ -225,6 +225,8 @@ class ImageFormatter extends ImageFormatterBase {
+     if ($image_link_setting == 'content') {
+       $entity = $items->getEntity();
+       if (!$entity->isNew()) {
++        if ($entity->hasTranslation($langcode))
++          $entity = $entity->getTranslation($langcode);
+         $url = $entity->toUrl();
+       }
+     }

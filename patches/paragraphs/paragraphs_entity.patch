@@ -1,0 +1,32 @@
+diff --git a/src/Entity/Paragraph.php b/src/Entity/Paragraph.php
+index 92d701c..be45dc8 100644
+--- a/src/Entity/Paragraph.php
++++ b/src/Entity/Paragraph.php
+@@ -128,14 +128,20 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
+     if (!isset($this->get('parent_type')->value) || !isset($this->get('parent_id')->value)) {
+       return NULL;
+     }
+-
+-    $parent = \Drupal::entityTypeManager()->getStorage($this->get('parent_type')->value)->load($this->get('parent_id')->value);
+-
+-    // Return current translation of parent entity, if it exists.
+-    if ($parent != NULL && ($parent instanceof TranslatableInterface) && $parent->hasTranslation($this->language()->getId())) {
+-      return $parent->getTranslation($this->language()->getId());
++    $parent = NULL;
++    try {
++      $parent = \Drupal::entityTypeManager()->getStorage($this->get('parent_type')->value)->load($this->get('parent_id')->value);
++      // Return current translation of parent entity, if it exists.
++      if ($parent != NULL && ($parent instanceof TranslatableInterface) && $parent->hasTranslation($this->language()->getId())) {
++        return $parent->getTranslation($this->language()->getId());
++      }
+     }
+-
++    catch (\Exception $e) {
++      if (\Drupal::currentUser()->id() == 1) {
++        \Drupal::messenger()->addWarning('getParentEntity : ' . $e->getMessage());
++      }
++    }
++    
+     return $parent;
+   }
+ 

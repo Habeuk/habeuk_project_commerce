@@ -1,0 +1,17 @@
+diff --git a/core/lib/Drupal/Core/Render/Element.php b/core/lib/Drupal/Core/Render/Element.php
+index f8f61919..232891c9 100644
+--- a/core/lib/Drupal/Core/Render/Element.php
++++ b/core/lib/Drupal/Core/Render/Element.php
+@@ -79,6 +79,12 @@ public static function children(array &$elements, $sort = FALSE) {
+     $sortable = FALSE;
+     foreach ($elements as $key => $value) {
+       if (is_int($key) || $key === '' || $key[0] !== '#') {
++      if ($key == "attributes" && is_object($value)) {
++          $value = null;
++          if (\Drupal::currentUser()->id() == 1) {
++            \Drupal::messenger()->addWarning("Erreur de definition de l'attribute, il faudra mener une investigation poussé afin de comprendre qui ajoute cela");
++          }
++      }
+         if (is_array($value)) {
+           if (isset($value['#weight'])) {
+             $weight = $value['#weight'];

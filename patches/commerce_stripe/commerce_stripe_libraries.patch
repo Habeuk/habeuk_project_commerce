@@ -1,0 +1,12 @@
+diff --git a/commerce_stripe.libraries.yml b/commerce_stripe.libraries.yml
+index d3a9840..931a19a 100755
+--- a/commerce_stripe.libraries.yml
++++ b/commerce_stripe.libraries.yml
+@@ -3,7 +3,6 @@ messages:
+   js:
+     js/commerce_stripe.messages.js: {}
+   dependencies:
+-    - classy/messages
+     - core/jquery
+     - core/drupal
+ 

@@ -26,7 +26,7 @@
         "drupal/core-composer-scaffold": "^10.3.5",
         "drupal/core-project-message": "^10.3.5",
         "drupal/core-recommended": "^10.3.5",
-        "habeuk/habeuk_commerce": "^2.0.29|dev-2x"
+        "habeuk/habeuk_commerce": "^2.0.30|dev-2x"
     },
     "require-dev": {
         "drupal/core-dev": "^10.3.5",
@@ -118,24 +118,25 @@
             ]
         },
         "patches": {
-            "drupal/core": {
-                "Ajout de l'id au niveau du label, champs autocomplete entitie": "patches/core/entity_autocomplete_matcher.patch"
-            },
-            "drupal/inline_entity_form": {
+			"drupal/core": {
+				"Ajout de l'id au niveau du label, champs autocomplete entitie": "patches/core/entity_autocomplete_matcher.patch",
+				"Support des images webp par ckeditor": "https://www.drupal.org/files/issues/2024-08-14/3386605-9-add-ckeditor5-support-for-webp.patch"
+			},
+			"drupal/inline_entity_form": {
                 " Save default value complex inline form ": "https://www.drupal.org/files/issues/2019-03-20/complex_widget_default_value-3041572-5.patch"
             },
-            "drupal/search_api": {
-                " desactivation du plugin:filter::search_api_term definie dans search_api.module ": "patches/search_api/search_api_module.patch"
-            },
-            "drupal/paragraphs": {
-                " Ajout du lien canonique au paragraph afin qu'on puisse editer les layout ": "patches/paragraphs/paragraphs.patch",
-                " Ajout du champs pour la configuration des langues au niveau des types de paragraphs ": "patches/paragraphs/paragraphs-language.patch",
-                " Modifications de la logique des filtres de references ": "patches/paragraphs/paragraphs_ref_selectiob.patch"
-            },
-            "drupal/commerce": {
-                "Redefinition du fournisseur d'identification des comptes de paiements": "patches/commerce/payment-payment-gatewaybase.patch",
-                "Recupere le paiement selectionner via le order::'payment_gateway' ": "patches/commerce/commerce-payment-options-builder.patch"
-            }
-        }
+			"drupal/search_api": {
+				" desactivation du plugin:filter::search_api_term definie dans search_api.module ": "patches/search_api/search_api_module.patch"
+			},
+			"drupal/paragraphs": {
+				" Ajout du lien canonique au paragraph afin qu'on puisse editer les layout ": "patches/paragraphs/paragraphs.patch",
+				" Ajout du champs pour la configuration des langues au niveau des types de paragraphs ": "patches/paragraphs/paragraphs-language.patch",
+				" Modifications de la logique des filtres de references ": "patches/paragraphs/paragraphs_ref_selectiob.patch"
+			},
+			"drupal/commerce": {
+				"Redefinition du fournisseur d'identification des comptes de paiements": "patches/commerce/payment-payment-gatewaybase.patch",
+				"Recupere le paiement selectionner via le order::'payment_gateway' ": "patches/commerce/commerce-payment-options-builder.patch"
+			}
+		}
     }
 }

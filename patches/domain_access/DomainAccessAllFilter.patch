@@ -1,0 +1,13 @@
+diff --git a/domain_access/src/Plugin/views/filter/DomainAccessCurrentAllFilter.php b/domain_access/src/Plugin/views/filter/DomainAccessCurrentAllFilter.php
+index db392902..a6e6ad57 100644
+--- a/domain_access/src/Plugin/views/filter/DomainAccessCurrentAllFilter.php
++++ b/domain_access/src/Plugin/views/filter/DomainAccessCurrentAllFilter.php
+@@ -51,7 +51,7 @@ class DomainAccessCurrentAllFilter extends BooleanOperator {
+   /**
+    * {@inheritdoc}
+    */
+-  protected function operators() {
++  public function operators() {
+     return [];
+   }
+ 

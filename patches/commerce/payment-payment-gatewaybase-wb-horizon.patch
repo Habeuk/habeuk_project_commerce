@@ -1,0 +1,19 @@
+diff --git a/modules/payment/src/Plugin/Commerce/PaymentGateway/PaymentGatewayBase.php b/modules/payment/src/Plugin/Commerce/PaymentGateway/PaymentGatewayBase.php
+index 372ca7d..20549f1 100644
+--- a/modules/payment/src/Plugin/Commerce/PaymentGateway/PaymentGatewayBase.php
++++ b/modules/payment/src/Plugin/Commerce/PaymentGateway/PaymentGatewayBase.php
+@@ -534,8 +534,13 @@ abstract class PaymentGatewayBase extends PluginBase implements PaymentGatewayIn
+     $provider = $this->parentEntity->id() . '|' . $this->getMode();
+     $configuration = $this->getConfiguration();
+     if (!empty($configuration['publishable_key'])) {
+-      $provider .= substr($configuration['publishable_key'], 0, 100);
++      $provider .= substr($configuration['publishable_key'], 0, 50);
+     }
++    // specifique à wb-horizon, on a besoin d'ajouter le domaine de
++    // l'utilisateur.
++    $currentDomainId = \Drupal\lesroidelareno\lesroidelareno::getCurrentDomainId();
++    if ($currentDomainId)
++      $provider .= $currentDomainId;
+     return $provider;
+   }
+   
