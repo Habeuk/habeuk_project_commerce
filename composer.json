@@ -26,7 +26,8 @@
         "drupal/core-composer-scaffold": "^10.3.5",
         "drupal/core-project-message": "^10.3.5",
         "drupal/core-recommended": "^10.3.5",
-        "habeuk/habeuk_commerce": "^2.0.30|dev-2x"
+        "drupal/entity_reference_revisions": "^1.12",
+        "habeuk/habeuk_commerce": "^2.0.33|dev-2x"
     },
     "require-dev": {
         "drupal/core-dev": "^10.3.5",

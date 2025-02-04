@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5839f81e8cac9ff9c0902bdab7e3a4b7",
+    "content-hash": "59649fd868e170a7d19aafbe8ec72f5f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6714,19 +6714,20 @@
         },
         {
             "name": "habeuk/bestlayouts",
-            "version": "1.0.12",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Habeuk/bestlayouts.git",
-                "reference": "c5e6f678146e4c086f9456f6889f26356c6d9a24"
+                "reference": "686ed9fea32b3fe4a02c893956bd04441321bb68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Habeuk/bestlayouts/zipball/c5e6f678146e4c086f9456f6889f26356c6d9a24",
-                "reference": "c5e6f678146e4c086f9456f6889f26356c6d9a24",
+                "url": "https://api.github.com/repos/Habeuk/bestlayouts/zipball/686ed9fea32b3fe4a02c893956bd04441321bb68",
+                "reference": "686ed9fea32b3fe4a02c893956bd04441321bb68",
                 "shasum": ""
             },
             "require": {
+                "drupal/entity_reference_revisions": "^1.3",
                 "drupal/formatage_models": "^4.1.23|dev-4x"
             },
             "type": "drupal-custom-module",
@@ -6743,9 +6744,9 @@
             "description": "contient de jolies layouts plus des paragraphes pret à l'emploi",
             "support": {
                 "issues": "https://github.com/Habeuk/bestlayouts/issues",
-                "source": "https://github.com/Habeuk/bestlayouts/tree/1.0.12"
+                "source": "https://github.com/Habeuk/bestlayouts/tree/1.0.13"
             },
-            "time": "2025-01-25T16:26:26+00:00"
+            "time": "2025-02-04T09:10:45+00:00"
         },
         {
             "name": "habeuk/blockscontent",
@@ -6999,16 +7000,16 @@
         },
         {
             "name": "habeuk/habeuk_commerce",
-            "version": "2.0.30",
+            "version": "2.0.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Habeuk/habeuk_commerce.git",
-                "reference": "7d05ae7cef33013f778e5b9b66a8812695fbd2b7"
+                "reference": "e2e39a8aec1f5fe6a55a535d95f97a1af159c9ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Habeuk/habeuk_commerce/zipball/7d05ae7cef33013f778e5b9b66a8812695fbd2b7",
-                "reference": "7d05ae7cef33013f778e5b9b66a8812695fbd2b7",
+                "url": "https://api.github.com/repos/Habeuk/habeuk_commerce/zipball/e2e39a8aec1f5fe6a55a535d95f97a1af159c9ce",
+                "reference": "e2e39a8aec1f5fe6a55a535d95f97a1af159c9ce",
                 "shasum": ""
             },
             "require": {
@@ -7027,7 +7028,7 @@
                 "habeuk/clothingslayouts": "dev-1x|^1.1.10",
                 "habeuk/commerceformatage": "^1.1.20|dev-1x",
                 "habeuk/contextual_more_links": "^1.0.2|dev-1x",
-                "habeuk/habeuk_profile": "^4.4.27|dev-4x",
+                "habeuk/habeuk_profile": "^4.4.29|dev-4x",
                 "habeuk/layoutscommerce": "^1.8.14|dev-1.x",
                 "habeuk/login_rx_vuejs": "^2.4.4|dev-2x",
                 "stephane888/owlcarousel": "^1.1.5|dev-1x",
@@ -7047,9 +7048,9 @@
             "description": "profile habeuk",
             "support": {
                 "issues": "https://github.com/Habeuk/habeuk_commerce/issues",
-                "source": "https://github.com/Habeuk/habeuk_commerce/tree/2.0.30"
+                "source": "https://github.com/Habeuk/habeuk_commerce/tree/2.0.33"
             },
-            "time": "2025-02-03T17:14:40+00:00"
+            "time": "2025-02-04T09:15:05+00:00"
         },
         {
             "name": "habeuk/habeuk_minimal_profile",
@@ -7098,16 +7099,16 @@
         },
         {
             "name": "habeuk/habeuk_profile",
-            "version": "4.4.27",
+            "version": "4.4.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Habeuk/habeuk_profile.git",
-                "reference": "d3509c0c53c47046f9b815dd0e45394a3f3a5d2e"
+                "reference": "ed439c50f9a649e6decd52dfc6c06be14b3aed0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Habeuk/habeuk_profile/zipball/d3509c0c53c47046f9b815dd0e45394a3f3a5d2e",
-                "reference": "d3509c0c53c47046f9b815dd0e45394a3f3a5d2e",
+                "url": "https://api.github.com/repos/Habeuk/habeuk_profile/zipball/ed439c50f9a649e6decd52dfc6c06be14b3aed0f",
+                "reference": "ed439c50f9a649e6decd52dfc6c06be14b3aed0f",
                 "shasum": ""
             },
             "require": {
@@ -7122,7 +7123,7 @@
                 "drupal/twig_vardumper": "^3.0",
                 "drupal/webform": "^6.2",
                 "drush/drush": "^12",
-                "habeuk/bestlayouts": "^1.0.12|dev-1x",
+                "habeuk/bestlayouts": "^1.0.13|dev-1x",
                 "habeuk/blockscontent": "^2.0.2|dev-2x",
                 "habeuk/drupal_utility": "^1.0.5|dev-1x",
                 "habeuk/habeuk_minimal_profile": "^1.2.4",
@@ -7145,9 +7146,9 @@
             "description": "profile habeuk",
             "support": {
                 "issues": "https://github.com/Habeuk/habeuk_profile/issues",
-                "source": "https://github.com/Habeuk/habeuk_profile/tree/4.4.27"
+                "source": "https://github.com/Habeuk/habeuk_profile/tree/4.4.29"
             },
-            "time": "2025-02-03T16:19:46+00:00"
+            "time": "2025-02-04T09:14:09+00:00"
         },
         {
             "name": "habeuk/habeuk_utilitaire",
