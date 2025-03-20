@@ -44,4 +44,6 @@
 /web.config
 /.project
 /.ddev
+/composer.lock
+composer.lock
 
