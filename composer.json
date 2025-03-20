@@ -12,13 +12,6 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        {
-            "type": "path",
-            "url": "/siteweb/DrupalModules/export_import_entities",
-            "options": {
-                "symlink": true
-            }
         }
     ],
     "require": {
@@ -27,12 +20,6 @@
         "drupal/core-project-message": "^10.3.5",
         "drupal/core-recommended": "^10.3.5",
         "habeuk/habeuk_commerce": "^2.0.32|dev-2x"
-    },
-    "require-dev": {
-        "drupal/core-dev": "^10.3.5",
-        "drupal/devel_entity_updates": "^4.1",
-        "habeuk/contextual_more_links": "^1.0",
-        "stephane888/export_import_entities": "^3.0.29|dev-3x"
     },
     "conflict": {
         "drupal/drupal": "*"
